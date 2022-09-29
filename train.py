@@ -88,18 +88,12 @@ if __name__ == "__main__":
     # cfg["train.epochs"] = 999
     # cfg["train.new_config"] = "test"
     cfg["callbacks"] = [
-            callback._start_training_generate_matrices_csgd,
             #callback._end_epoch_save_all_FMs,
-            #callback._end_epoch_prune,
-            callback._after_compute_grads_csgd,
-            callback._end_epoch_examine_clusters_csgd,
+            callback._end_epoch_prune,
             callback._end_epoch_save_history,
             callback._end_epoch_track_number_filters,
             callback._end_epoch_save_last_model,
-            callback._end_training_prune_csgd,
             ]
-    #exp_name = f"Sauron_reimp/interpretability/{cfg['data'].name}/"
-    exp_name = f"centripetal/{cfg['data'].name}/"
-    #exp_name = f"delete_centri/{cfg['data'].name}/"
+    exp_name = f"Sauron_reimp/comparison/{cfg['data'].name}/"
 
     train(cfg, exp_name)

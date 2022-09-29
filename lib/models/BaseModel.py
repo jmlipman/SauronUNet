@@ -202,7 +202,6 @@ class BaseModel(torch.nn.Module):
                 writer.add_scalar("val_loss", val_loss, e)
 
             callCallbacks(callbacks, "_end_epoch", locals())
-            print("Checking if training needs to stop because of the distances of centripetal")
             if hasattr(self, "end_training") and self.end_training:
                 break
 
